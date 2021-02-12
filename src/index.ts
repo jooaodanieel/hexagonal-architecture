@@ -10,9 +10,9 @@ import * as Broker from './framework/message_broker';
 async function bootstrap() {
   const db = await DB.connect();
 
-  await Broker.connect();
+  const broker = await Broker.connect();
 
-  WebApp.start();
+  WebApp.start(db, broker);
 }
 
 bootstrap().catch(console.dir);
