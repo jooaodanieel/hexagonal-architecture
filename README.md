@@ -18,4 +18,4 @@ potencial conjunto de serviços e como eles se conectam;
 > nota: é possível pensar que chega-se ao nível de serviço dando um "zoom" no _escopo de serviço_ a partir do
 > nível de sistema.
 
-<img src="https://github.com/uspcodelab/ts-ms-boilerplate/blob/main/arqui-boilerplate-ms.png" alt="Modelo da Arquitetura">
+<img src="https://github.com/jooaodanieel/hexagonal-architecture/blob/main/arqui-boilerplate-ms.png" alt="Modelo da Arquitetura">
