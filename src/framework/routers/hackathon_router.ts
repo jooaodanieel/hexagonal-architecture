@@ -1,7 +1,7 @@
 import { Context } from 'koa';
 import * as Router from 'koa-router';
 
-import { createHackathon } from '../../use_cases/create_hackathon';
+import { CreateHackathon } from '../../use_cases/create_hackathon';
 import { HackathonService } from '../data_services/hackathon_service';
 
 export const hackathonRouter: Router = new Router();
@@ -11,7 +11,7 @@ hackathonRouter.post(
   async (ctx: Context): Promise<void> => {
     try {
       const ds = new HackathonService(ctx.db);
-      const newHackEvt = await createHackathon(ctx.request.body, ds);
+      const newHackEvt = await CreateHackathon.run(ctx.request.body, ds);
       ctx.broker.publish(newHackEvt);
       ctx.body = { hackathon: newHackEvt.hackathon };
     } catch (e) {
