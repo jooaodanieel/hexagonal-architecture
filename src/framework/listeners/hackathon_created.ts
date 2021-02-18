@@ -1,6 +1,6 @@
 import { HackathonCreatedEvent } from '../../core/hackathon_created_event';
 import { Message } from 'node-nats-streaming';
-import { hackathonCreated } from '../../use_cases/hackathon_created';
+import { HackathonCreated } from '../../use_cases/hackathon_created';
 import { HackathonService } from '../data_services/hackathon_service';
 
 export function hackathonCreatedListener(stan: any, db: any): void {
@@ -15,7 +15,7 @@ export function hackathonCreatedListener(stan: any, db: any): void {
 
       const hackSvc = new HackathonService(db);
 
-      await hackathonCreated(payload, hackSvc);
+      await HackathonCreated.run(payload, hackSvc);
     },
   );
 }
