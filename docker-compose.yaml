@@ -16,6 +16,13 @@ services:
     ports:
       - 4222:4222
 
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
   app:
     build: .
     ports:
@@ -28,6 +35,7 @@ services:
     depends_on:
       - broker
       - mongo
+      - prometheus
 
 volumes:
   deps:

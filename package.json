@@ -47,6 +47,7 @@
     "koa-logger": "^3.2.1",
     "koa-router": "^10.0.0",
     "mongodb": "^3.6.4",
-    "node-nats-streaming": "^0.3.2"
+    "node-nats-streaming": "^0.3.2",
+    "prom-client": "^13.1.0"
   }
 }

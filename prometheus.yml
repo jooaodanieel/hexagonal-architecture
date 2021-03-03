@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 10s
+  scrape_timeout: 5s
+
+scrape_configs:
+  - job_name: 'hex-backend'
+    static_configs:
+      - targets: ['app:3000']

@@ -5,6 +5,7 @@ import * as cors from '@koa/cors';
 import * as logger from 'koa-logger';
 
 import { hackathonRouter } from './routers/hackathon_router';
+import { metricsRouter } from './routers/metrics_router';
 
 const port = process.env.PORT || 3000;
 
@@ -25,6 +26,7 @@ export function prepare(db: any, broker: any) {
 export function start(db: any, broker: any) {
   const app = prepare(db, broker);
 
+  app.use(metricsRouter.routes()).use(metricsRouter.allowedMethods());
   app.use(cors());
   app.use(logger());
 
